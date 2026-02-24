@@ -1,0 +1,24 @@
+{
+  "afflictions": [
+    {"id": "poor_circulation", "name": "Poor Circulation", "category": "circulation", "icon": "cloud-circulation"},
+    {"id": "fatigue", "name": "Fatigue", "category": "energy", "icon": "cloud-energy"},
+    {"id": "stress", "name": "Stress", "category": "stress", "icon": "cloud-stress"},
+    {"id": "insomnia", "name": "Insomnia", "category": "sleep", "icon": "cloud-sleep"},
+    {"id": "weak_immunity", "name": "Weak Immunity", "category": "immunity", "icon": "cloud-immunity"},
+    {"id": "bloating", "name": "Bloating", "category": "digestion", "icon": "cloud-digestion"}
+  ],
+  "remedies": [
+    {"id": "beet", "name": "Beets", "heals": "poor_circulation", "points": 150, "chains": ["energy"], "type": "food"},
+    {"id": "garlic", "name": "Garlic", "heals": "poor_circulation", "points": 120, "chains": ["immunity"], "type": "food"},
+    {"id": "banana", "name": "Banana", "heals": "fatigue", "points": 110, "chains": [], "type": "food"},
+    {"id": "spinach", "name": "Spinach", "heals": "fatigue", "points": 130, "chains": ["circulation"], "type": "food"},
+    {"id": "chamomile", "name": "Chamomile Tea", "heals": "stress", "points": 160, "chains": ["sleep"], "type": "herb"},
+    {"id": "lavender", "name": "Lavender", "heals": "stress", "points": 140, "chains": [], "type": "herb"},
+    {"id": "cherries", "name": "Tart Cherries", "heals": "insomnia", "points": 155, "chains": ["stress"], "type": "food"},
+    {"id": "magnesium", "name": "Magnesium", "heals": "insomnia", "points": 120, "chains": [], "type": "mineral"},
+    {"id": "citrus", "name": "Citrus", "heals": "weak_immunity", "points": 140, "chains": ["energy"], "type": "food"},
+    {"id": "ginger", "name": "Ginger", "heals": "bloating", "points": 130, "chains": ["circulation"], "type": "root"},
+    {"id": "yoga", "name": "Yoga", "heals": "poor_circulation", "points": 200, "chains": ["stress", "energy"], "type": "activity"},
+    {"id": "meditation", "name": "Meditation", "heals": "stress", "points": 200, "chains": ["sleep", "energy"], "type": "activity"}
+  ]
+}
