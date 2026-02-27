@@ -1,0 +1,44 @@
+npm warn Unknown user config "msvs_version". This will stop working in the next major version of npm.
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Web .\index.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.0% ( 93/132)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.0% (156/371)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.0% (194/390)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.0% (247/411)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓░░░░░░ 68.0% (351/429)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (407/770)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (410/774)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (433/792)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (434/792)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (509/810)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (560/816)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓░░░░░ 70.7% (667/818)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 76.5% (724/828)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░ 83.6% (758/829)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 87.6% (819/881)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 87.7% (825/881)
+Web .\index.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░ 87.9% (826/881)
+Web Bundled 59177ms index.js (894 modules)
+
+› web bundles (2):
+_expo/static/js/web/index-04a226a93406112a9ceed02056d48cfd.js (5.95 MB)
+_expo/static/js/web/vision_bundle-0f267d58fa91846660c823d09395b7ed.js (141 kB)
+
+› Files (3):
+favicon.ico (14.5 kB)
+index.html (1.22 kB)
+metadata.json (49 B)
+
+Exported: dist

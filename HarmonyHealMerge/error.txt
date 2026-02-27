@@ -1,0 +1,27 @@
+npm warn Unknown user config "msvs_version". This will stop working in the next major version of npm.
+npm warn Unknown user config "python". This will stop working in the next major version of npm.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+No 'androidAppId' was provided. The native Google Mobile Ads SDK will crash on Android without it.
+No 'iosAppId' was provided. The native Google Mobile Ads SDK will crash on iOS without it.
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Web Bundling failed 625ms index.js (1 module)
+SyntaxError: index.js: [BABEL] C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\index.js: Cannot find module 'react-native-worklets/plugin'
+Require stack:
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\react-native-reanimated\plugin\index.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\node_modules\babel-preset-expo\build\index.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\internal\babel-preset.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\node_modules\@expo\metro-config\build\loadBabelConfig.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\node_modules\@expo\metro-config\build\babel-transformer.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\node_modules\@expo\metro-config\build\transform-worker\metro-transform-worker.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\expo\node_modules\@expo\metro-config\build\transform-worker\transform-worker.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\metro\src\DeltaBundler\Worker.flow.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\metro\src\DeltaBundler\Worker.js
+- C:\Users\simps\TherapeuticMerge\Therapeutic\HarmonyHealMerge\node_modules\jest-worker\build\workers\processChild.js (While processing: "base$0")

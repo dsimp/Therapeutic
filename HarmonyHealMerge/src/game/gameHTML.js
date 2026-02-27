@@ -1,4 +1,3 @@
-import { avatarImage } from './avatarImage';
 import { beetrootImage } from './beetrootImage';
 import { chamomileImage } from './chamomileImage';
 import { gingerImage } from './gingerImage';
@@ -13,14 +12,13 @@ const gameHTML = `
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <style>
-    body { margin: 0; padding: 0; background-color: #0b132b; overflow: hidden; touch-action: none; font-family: sans-serif; }
+    body { margin: 0; padding: 0; background-color: transparent; overflow: hidden; touch-action: none; font-family: sans-serif; }
     canvas { display: block; width: 100vw; height: 100vh; }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
 </head>
 <body>
   <script>
-    const AVATAR_B64 = "${avatarImage}";
     const BEETROOT_B64 = "${beetrootImage}";
     const CHAMOMILE_B64 = "${chamomileImage}";
     const GINGER_B64 = "${gingerImage}";
@@ -61,7 +59,6 @@ const gameHTML = `
         const graphics = this.add.graphics();
         
         // Use the pre-loaded HTML food image objects
-        if (window.avatarImageObj) this.textures.addImage('avatar', window.avatarImageObj);
         if (window.beetrootImageObj) this.textures.addImage('beetroot', window.beetrootImageObj);
         if (window.chamomileImageObj) this.textures.addImage('chamomile', window.chamomileImageObj);
         if (window.gingerImageObj) this.textures.addImage('ginger', window.gingerImageObj);
@@ -115,36 +112,14 @@ const gameHTML = `
       }
 
       create() {
-        // Deep, rich dark background similar to the reference
-        this.cameras.main.setBackgroundColor('#081017');
-        
         const cx = this.cameras.main.centerX;
         const cy = this.cameras.main.centerY - 50; // Shift up slightly for tray
         
-        // Render the new Glass Holographic Avatar
-        const avatar = this.add.image(cx, cy, 'avatar');
-        
-        // Scale avatar to fit nicely, making it dominate the screen
-        const scale = (window.innerHeight * 0.95) / avatar.height;
-        avatar.setScale(scale);
-        avatar.setAlpha(0.95); // High visibility for the new internal systems
-        
-        // Add subtle floating animation to avatar
-        this.tweens.add({
-            targets: avatar,
-            y: cy - 15,
-            duration: 3000,
-            yoyo: true,
-            repeat: -1,
-            ease: 'Sine.easeInOut'
-        });
-
-        // Define body zones relative to the scaled original avatar
-        // Adjusted roughly based on human anatomy in the center of the image
+        // Define body zones relative to the screen (Avatar is now rendered in 3D React-Three-Fiber layer)
         this.zones = {
-            'head': { x: cx, y: cy - (avatar.height * scale * 0.35), label: 'ANXIETY & DEPRESSION', aura: 'stress_aura' },
-            'heart': { x: cx, y: cy - (avatar.height * scale * 0.1), label: 'CIRCULATORY ISSUES', aura: 'poor_circulation_aura' }, 
-            'stomach': { x: cx - (avatar.width * scale * 0.2), y: cy - (avatar.height * scale * 0.2), label: 'MUSCLE STRAIN', aura: 'digestion_aura' }
+            'head': { x: cx, y: cy - (window.innerHeight * 0.3), label: 'ANXIETY & DEPRESSION', aura: 'stress_aura' },
+            'heart': { x: cx, y: cy - (window.innerHeight * 0.05), label: 'CIRCULATORY ISSUES', aura: 'poor_circulation_aura' }, 
+            'stomach': { x: cx, y: cy + (window.innerHeight * 0.1), label: 'MUSCLE STRAIN', aura: 'digestion_aura' }
         };
 
         // UI Layer Graphics (for connecting lines)
@@ -316,7 +291,7 @@ const gameHTML = `
             let hitSymptomIndex = -1;
             let hitTrayItem = null;
 
-            // 1. Check distance to active symptom zones on the avatar
+            // 1. Check distance to active 2D UI symptom zones (Legacy labels)
             for (let i = 0; i < this.activeSymptoms.length; i++) {
                 const symptom = this.activeSymptoms[i];
                 const dist = Phaser.Math.Distance.Between(this.dragItem.x, this.dragItem.y, symptom.targetX, symptom.targetY);
@@ -344,13 +319,34 @@ const gameHTML = `
               
             if (hitSymptom) {
                 this.checkHeal(this.dragItem, hitSymptom, hitSymptomIndex);
+                this.dragItem = null;
             } else if (hitTrayItem) {
                 this.checkMerge(this.dragItem, hitTrayItem);
+                this.dragItem = null;
             } else {
-                // Snap back to tray if missed everything
+                // If it missed the 2D UI elements, it might have hit the 3D Avatar!
+                // Transmit the strictly normalized Screen Coordinates out to React Native for 3D Raycasting
+                const normalizedX = (this.dragItem.x / window.innerWidth) * 2 - 1;
+                const normalizedY = -(this.dragItem.y / window.innerHeight) * 2 + 1;
+                
+                const dropData = JSON.stringify({
+                    type: 'DROP_3D',
+                    remedyId: this.dragItem.id,
+                    x: normalizedX,
+                    y: normalizedY
+                });
+                
+                if (window.ReactNativeWebView) {
+                    window.ReactNativeWebView.postMessage(dropData);
+                }
+                if (window.parent && window.parent !== window) {
+                    window.parent.postMessage(dropData, '*');
+                }
+                
+                // Snap back temporarily (React Native will tell us to destroy it later if the 3D Raycast reports a hit)
                 this.snapBackDragItem();
+                this.dragItem = null;
             }
-            this.dragItem = null;
         }
       }
 
@@ -517,7 +513,6 @@ const gameHTML = `
         });
 
         await Promise.all([
-            loadImg(AVATAR_B64, 'avatarImageObj'),
             loadImg(BEETROOT_B64, 'beetrootImageObj'),
             loadImg(CHAMOMILE_B64, 'chamomileImageObj'),
             loadImg(GINGER_B64, 'gingerImageObj'),

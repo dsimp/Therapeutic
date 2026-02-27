@@ -5,7 +5,6 @@ const imgDir = 'C:\\Users\\simps\\.gemini\\antigravity\\brain\\49277b68-39ea-471
 const outDir = path.join(__dirname, 'src', 'game');
 
 const imagesToEncode = [
-    { name: 'avatarImage', file: 'futuristic_xray_avatar_1771968085372.png' },
     { name: 'beetrootImage', file: 'food_icon_beetroot_dark_1771975377430.png' },
     { name: 'chamomileImage', file: 'food_icon_chamomile_1771970183885.png' },
     { name: 'gingerImage', file: 'food_icon_ginger_1771970196874.png' },
